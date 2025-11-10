@@ -1,0 +1,12 @@
+{
+    "name": "AWS_Monitoramento_Temperatura",
+    "description": "Fluxos Node-RED na AWS de Monitoramento de Temperatura",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}
