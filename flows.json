@@ -1,1 +1,1075 @@
-[]
+[
+    {
+        "id": "fd524832e9baf80e",
+        "type": "tab",
+        "label": "Qualicarnes01",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f24e9ba9d5e910c0",
+        "type": "tab",
+        "label": "Qualicarnes02",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bb2945ca36ea8034",
+        "type": "subflow",
+        "name": "intervalo captura",
+        "info": "",
+        "category": "observer",
+        "in": [
+            {
+                "x": 60,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "b3edcb7faf9fd954"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 740,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "1466f9140e1b9ced",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "053d43c4383f7c55",
+        "type": "subflow",
+        "name": "atualiza time captura",
+        "info": "",
+        "category": "observer",
+        "in": [
+            {
+                "x": 60,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "b54786d4e733d855"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "e51b394f9dbe21a5",
+        "type": "subflow",
+        "name": "destinatarios",
+        "info": "",
+        "category": "observer",
+        "in": [
+            {
+                "x": 60,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "f613f281c635c87b"
+                    },
+                    {
+                        "id": "ca98d32fc734553c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 760,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "ca98d32fc734553c",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "dados",
+                "type": "json",
+                "value": ""
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "cea2d7115083e519",
+        "type": "tls-config",
+        "name": "AWS_Certificados_Qualicarnes",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-certificate.pem.crt",
+        "keyname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-private.pem.key",
+        "caname": "AmazonRootCA1.pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "c84551bba9c42887",
+        "type": "mqtt-broker",
+        "name": "AWS_MQTT_Qualicarnes",
+        "broker": "a11kau81c7riu1-ats.iot.us-east-1.amazonaws.com",
+        "port": "8883",
+        "tls": "cea2d7115083e519",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "203d61f620165745",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "iotQualicarnes01",
+        "name": "AWS-InfluxDB-Qualicarnes01",
+        "usetls": false,
+        "tls": "cea2d7115083e519",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "db7539a49a5651f4",
+        "type": "tls-config",
+        "name": "AWS_Certificados_Qualicarnes",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-certificate.pem.crt",
+        "keyname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-private.pem.key",
+        "caname": "AmazonRootCA1.pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "813aea213b8aa001",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "iotQualicarnes02",
+        "name": "AWS-InfluxDB-Qualicarnes02",
+        "usetls": false,
+        "tls": "cea2d7115083e519",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f3eb6fab039c779f",
+        "type": "function",
+        "z": "bb2945ca36ea8034",
+        "name": "calcula tempo decorrido sem captura de dados",
+        "func": "let timesUltimaCaptura = msg.payload.time;\nlet timeAtual = new Date().getTime();\nlet milissegundos;\nlet minutos;\n\nmilissegundos = timeAtual - timesUltimaCaptura;\nminutos = Math.abs(Math.round(milissegundos / 60000));\n\nmsg.payload = {\n    \"tempo_decorrido_captura\": minutos\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "c10ecbb533c23519"
+            ]
+        ]
+    },
+    {
+        "id": "c10ecbb533c23519",
+        "type": "switch",
+        "z": "bb2945ca36ea8034",
+        "name": "tempo decorrido sem captura > 30",
+        "property": "payload.tempo_decorrido_captura",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "6b40ad9af4e27b57"
+            ]
+        ]
+    },
+    {
+        "id": "1466f9140e1b9ced",
+        "type": "change",
+        "z": "bb2945ca36ea8034",
+        "name": "prepara saida",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.time_captura",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.intervalo_maximo_captura",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "853bc2a6d5007190",
+        "type": "json",
+        "z": "bb2945ca36ea8034",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "f3eb6fab039c779f"
+            ]
+        ]
+    },
+    {
+        "id": "6b40ad9af4e27b57",
+        "type": "function",
+        "z": "bb2945ca36ea8034",
+        "name": "converte tempo decorrido sem captura de dados",
+        "func": "let tempoMinutos = msg.payload.tempo_decorrido_captura;\nlet minutos = 0;\nlet horas = 0;\nlet strMinutos = 'minuto';\nlet strHoras = 'hora';\nlet strTime;\n\nminutos = tempoMinutos % 60\nhoras = Math.floor(tempoMinutos / 60) \n\nif ( minutos > 1 ) {\n    strMinutos += 's';\n}\n\nif (horas > 1) {\n    strHoras += 's';\n}\n\nif ( tempoMinutos >= 60 ) {\n    if ( horas > 0) {\n        if ( minutos > 0) {\n            strTime = horas + ' ' + strHoras + ' e ' + minutos + ' ' + strMinutos;\n        } else {\n            strTime = horas + ' ' + strHoras;\n        }\n    } else {\n        strTime = minutos + ' ' + strMinutos;\n    }\n}  else {\n    strTime = tempoMinutos + ' ' + strMinutos;\n}\n\nmsg.payload = {\n    'tempo_decorrido_captura_string': strTime\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "1466f9140e1b9ced"
+            ]
+        ]
+    },
+    {
+        "id": "b3edcb7faf9fd954",
+        "type": "file in",
+        "z": "bb2945ca36ea8034",
+        "name": "le timestamp de captura de dados",
+        "filename": "/home/ubuntu/qualicarnes01/config/.time_cap.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 260,
+        "y": 40,
+        "wires": [
+            [
+                "853bc2a6d5007190"
+            ]
+        ]
+    },
+    {
+        "id": "b54786d4e733d855",
+        "type": "function",
+        "z": "053d43c4383f7c55",
+        "name": "gera timestamp de captura de dados",
+        "func": "let timeAtual = new Date().getTime();\n\nlet objTime = {\n    'time': timeAtual\n}\n\nmsg.payload = objTime;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 40,
+        "wires": [
+            [
+                "8678342a5ce9419a"
+            ]
+        ]
+    },
+    {
+        "id": "8678342a5ce9419a",
+        "type": "file",
+        "z": "053d43c4383f7c55",
+        "name": "atualiza timestamp de captura de dados de temperatura",
+        "filename": "/home/ubuntu/qualicarnes01/config/.time_cap.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 670,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f613f281c635c87b",
+        "type": "file in",
+        "z": "e51b394f9dbe21a5",
+        "name": "usuarios",
+        "filename": "/home/ubuntu/qualicarnes01/usuarios/config.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "ecca7b4c6fc41433"
+            ]
+        ]
+    },
+    {
+        "id": "3bfcdbc81c78eb97",
+        "type": "split",
+        "z": "e51b394f9dbe21a5",
+        "name": "",
+        "splt": ";",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "ca98d32fc734553c"
+            ]
+        ]
+    },
+    {
+        "id": "ca98d32fc734553c",
+        "type": "join",
+        "z": "e51b394f9dbe21a5",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 650,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ecca7b4c6fc41433",
+        "type": "json",
+        "z": "e51b394f9dbe21a5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "3bfcdbc81c78eb97"
+            ]
+        ]
+    },
+    {
+        "id": "adf1d7c95f554f95",
+        "type": "mqtt in",
+        "z": "fd524832e9baf80e",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_01/sensor/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": "0",
+        "inputs": 0,
+        "x": 220,
+        "y": 40,
+        "wires": [
+            [
+                "155be1faa70d287d"
+            ]
+        ]
+    },
+    {
+        "id": "4e21feac73ee67c7",
+        "type": "function",
+        "z": "fd524832e9baf80e",
+        "name": "exclui registros com duração > 30 dias na tabela temperatura",
+        "func": "msg.query=\"delete from temperatura where time <= now() -30d;\"\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "bd1f16e407789de8"
+            ]
+        ]
+    },
+    {
+        "id": "d270e1c076903ddd",
+        "type": "inject",
+        "z": "fd524832e9baf80e",
+        "name": "a cada 1 dia",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "86400",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "4e21feac73ee67c7",
+                "018a05a1e3355ce7"
+            ]
+        ]
+    },
+    {
+        "id": "fb64ddcd5917cfbf",
+        "type": "mqtt in",
+        "z": "fd524832e9baf80e",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_01/sensor/porta",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": "0",
+        "inputs": 0,
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "4af12c775f3429a3"
+            ]
+        ]
+    },
+    {
+        "id": "018a05a1e3355ce7",
+        "type": "function",
+        "z": "fd524832e9baf80e",
+        "name": "exclui registros com duração > 7 dias na tabela porta",
+        "func": "msg.query=\"delete from porta where time <= now() -7d;\"\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "88c963cd3583ec0a"
+            ]
+        ]
+    },
+    {
+        "id": "cc90e920bf541ba1",
+        "type": "subflow:053d43c4383f7c55",
+        "z": "fd524832e9baf80e",
+        "name": "",
+        "x": 480,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8068d43790037faf",
+        "type": "inject",
+        "z": "fd524832e9baf80e",
+        "name": "a cada 1 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "c78dc885f76039bb"
+            ]
+        ]
+    },
+    {
+        "id": "c78dc885f76039bb",
+        "type": "subflow:bb2945ca36ea8034",
+        "z": "fd524832e9baf80e",
+        "name": "",
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "cf4b1904885f9efa"
+            ]
+        ]
+    },
+    {
+        "id": "47661220c80150ef",
+        "type": "mqtt in",
+        "z": "fd524832e9baf80e",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_01/sensor/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "cc90e920bf541ba1"
+            ]
+        ]
+    },
+    {
+        "id": "c3d97fdddaebc032",
+        "type": "function",
+        "z": "fd524832e9baf80e",
+        "name": "elabora mensagem",
+        "func": "let msgWhatsapp = msg.payload.empresa + ': Sem envio de dados há mais de ' + msg.payload.tempo_decorrido_captura_string + '.';\nlet url = 'https://api.callmebot.com/whatsapp.php?';\n\nmsg.url = url + 'phone=' + msg.payload.fone + '&text=' + msgWhatsapp + '&apikey=' + msg.payload.chave;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "9ec2dfb7e9af2ed8"
+            ]
+        ]
+    },
+    {
+        "id": "9ec2dfb7e9af2ed8",
+        "type": "http request",
+        "z": "fd524832e9baf80e",
+        "d": true,
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 780,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf4b1904885f9efa",
+        "type": "function",
+        "z": "fd524832e9baf80e",
+        "name": "dados do destinatario",
+        "func": "msg.payload = {\n    ...msg.payload,\n    'empresa': 'Qualicarnes-Loja01',\n    'fone': '556181030064',\n    'chave': '7665291'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [
+                "c3d97fdddaebc032"
+            ]
+        ]
+    },
+    {
+        "id": "155be1faa70d287d",
+        "type": "influxdb out",
+        "z": "fd524832e9baf80e",
+        "influxdb": "203d61f620165745",
+        "name": "AWS-InfluxDB-Qualicarnes01-Temperatura-Pub",
+        "measurement": "temperatura",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 620,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4af12c775f3429a3",
+        "type": "influxdb out",
+        "z": "fd524832e9baf80e",
+        "influxdb": "203d61f620165745",
+        "name": "AWS-InfluxDB-Qualicarnes01-Porta-Pub",
+        "measurement": "porta",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bd1f16e407789de8",
+        "type": "influxdb in",
+        "z": "fd524832e9baf80e",
+        "influxdb": "203d61f620165745",
+        "name": "AWS-InfluxDB-Qualicarnes01-Temperatura-Pub",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 480,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88c963cd3583ec0a",
+        "type": "influxdb in",
+        "z": "fd524832e9baf80e",
+        "influxdb": "203d61f620165745",
+        "name": "AWS-InfluxDB-Qualicarnes01-Porta-Pub",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 460,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b7e7e35394b0906f",
+        "type": "mqtt in",
+        "z": "f24e9ba9d5e910c0",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_02/sensor/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": "0",
+        "inputs": 0,
+        "x": 220,
+        "y": 40,
+        "wires": [
+            [
+                "8245e15efea8d4a5"
+            ]
+        ]
+    },
+    {
+        "id": "5e75af18ad77f412",
+        "type": "function",
+        "z": "f24e9ba9d5e910c0",
+        "name": "exclui registros com duração > 30 dias na tabela temperatura",
+        "func": "msg.query=\"delete from temperatura where time <= now() -30d;\"\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "87aaad562a7e7a9b"
+            ]
+        ]
+    },
+    {
+        "id": "9ce71d7f6fd65b47",
+        "type": "inject",
+        "z": "f24e9ba9d5e910c0",
+        "name": "a cada 1 dia",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "86400",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "5e75af18ad77f412",
+                "9ff2ca1a278354bb"
+            ]
+        ]
+    },
+    {
+        "id": "f32c0330b6c54833",
+        "type": "mqtt in",
+        "z": "f24e9ba9d5e910c0",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_02/sensor/porta",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": "0",
+        "inputs": 0,
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "e27abf7d7f14d90f"
+            ]
+        ]
+    },
+    {
+        "id": "9ff2ca1a278354bb",
+        "type": "function",
+        "z": "f24e9ba9d5e910c0",
+        "name": "exclui registros com duração > 7 dias na tabela porta",
+        "func": "msg.query=\"delete from porta where time <= now() -7d;\"\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "fc285f88601f0839"
+            ]
+        ]
+    },
+    {
+        "id": "df3b1add4f325072",
+        "type": "subflow:053d43c4383f7c55",
+        "z": "f24e9ba9d5e910c0",
+        "name": "",
+        "x": 480,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b94cfa5b633c876e",
+        "type": "inject",
+        "z": "f24e9ba9d5e910c0",
+        "name": "a cada 1 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "16ec6b747227492c"
+            ]
+        ]
+    },
+    {
+        "id": "16ec6b747227492c",
+        "type": "subflow:bb2945ca36ea8034",
+        "z": "f24e9ba9d5e910c0",
+        "name": "",
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "f10995daf730ee55"
+            ]
+        ]
+    },
+    {
+        "id": "355bc1294aa635fa",
+        "type": "mqtt in",
+        "z": "f24e9ba9d5e910c0",
+        "name": "",
+        "topic": "observer/qualicarnes/loja_02/sensor/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "c84551bba9c42887",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "df3b1add4f325072"
+            ]
+        ]
+    },
+    {
+        "id": "ab8be9772b27eb82",
+        "type": "function",
+        "z": "f24e9ba9d5e910c0",
+        "name": "elabora mensagem",
+        "func": "let msgWhatsapp = msg.payload.empresa + ': Sem envio de dados há mais de ' + msg.payload.tempo_decorrido_captura_string + '.';\nlet url = 'https://api.callmebot.com/whatsapp.php?';\n\nmsg.url = url + 'phone=' + msg.payload.fone + '&text=' + msgWhatsapp + '&apikey=' + msg.payload.chave;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "da38a930fc07738b"
+            ]
+        ]
+    },
+    {
+        "id": "da38a930fc07738b",
+        "type": "http request",
+        "z": "f24e9ba9d5e910c0",
+        "d": true,
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 780,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f10995daf730ee55",
+        "type": "function",
+        "z": "f24e9ba9d5e910c0",
+        "name": "dados do destinatario",
+        "func": "msg.payload = {\n    ...msg.payload,\n    'empresa': 'Qualicarnes-Loja01',\n    'fone': '556181030064',\n    'chave': '7665291'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [
+                "ab8be9772b27eb82"
+            ]
+        ]
+    },
+    {
+        "id": "8245e15efea8d4a5",
+        "type": "influxdb out",
+        "z": "f24e9ba9d5e910c0",
+        "influxdb": "813aea213b8aa001",
+        "name": "AWS-InfluxDB-Qualicarnes02-Temperatura-Pub",
+        "measurement": "temperatura",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 620,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e27abf7d7f14d90f",
+        "type": "influxdb out",
+        "z": "f24e9ba9d5e910c0",
+        "influxdb": "813aea213b8aa001",
+        "name": "AWS-InfluxDB-Qualicarnes02-Porta-Pub",
+        "measurement": "porta",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "87aaad562a7e7a9b",
+        "type": "influxdb in",
+        "z": "f24e9ba9d5e910c0",
+        "influxdb": "813aea213b8aa001",
+        "name": "AWS-InfluxDB-Qualicarnes02-Temperatura-Pub",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 480,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc285f88601f0839",
+        "type": "influxdb in",
+        "z": "f24e9ba9d5e910c0",
+        "influxdb": "813aea213b8aa001",
+        "name": "AWS-InfluxDB-Qualicarnes02-Porta-Pub",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 460,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    }
+]
