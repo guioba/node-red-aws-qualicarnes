@@ -463,7 +463,8 @@
         "y": 40,
         "wires": [
             [
-                "155be1faa70d287d"
+                "155be1faa70d287d",
+                "5f15b331e1825d29"
             ]
         ]
     },
@@ -758,6 +759,22 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "5f15b331e1825d29",
+        "type": "debug",
+        "z": "fd524832e9baf80e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 120,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "b7e7e35394b0906f",
