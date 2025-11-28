@@ -880,7 +880,6 @@
         "id": "b94cfa5b633c876e",
         "type": "inject",
         "z": "f24e9ba9d5e910c0",
-        "d": true,
         "name": "a cada 1 min",
         "props": [
             {
