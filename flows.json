@@ -171,20 +171,6 @@
         "rejectUnauthorized": true
     },
     {
-        "id": "db7539a49a5651f4",
-        "type": "tls-config",
-        "name": "AWS_Certificados_Qualicarnes",
-        "cert": "",
-        "key": "",
-        "ca": "",
-        "certname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-certificate.pem.crt",
-        "keyname": "2c46850a8897f6172c95eae74d9cd056ef04e4a00712c55974dee009b919bd39-private.pem.key",
-        "caname": "AmazonRootCA1.pem",
-        "servername": "",
-        "verifyservercert": true,
-        "alpnprotocol": ""
-    },
-    {
         "id": "813aea213b8aa001",
         "type": "influxdb",
         "hostname": "127.0.0.1",
